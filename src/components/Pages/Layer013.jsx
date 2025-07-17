@@ -43,7 +43,17 @@ const Layer0131 = () => {
         const sortedRace = [...formatFields(parsedData.race)].sort(
           (a, b) => parseFloat(b.value) - parseFloat(a.value)
         );
-        setSelectedRaceLabel(sortedRace[0]?.label || "");
+
+        const topRaceLabel = sortedRace[0]?.label || "";
+        setSelectedRaceLabel(topRaceLabel);
+
+        const formattedRaceFields = formatFields(parsedData.race);
+        const topRaceIndex = formattedRaceFields.findIndex(
+          (f) => f.label === topRaceLabel
+        );
+        setSelectedRaceIndex(topRaceIndex);
+
+        setRaceFields(formattedRaceFields);
 
         const sortedSex = [...formatFields(parsedData.gender)].sort(
           (a, b) => parseFloat(b.value) - parseFloat(a.value)
@@ -109,6 +119,7 @@ const Layer0131 = () => {
     const field = getSortedFieldsWithIndex()[index];
     if (activeSection === "RACE") {
       setSelectedRaceLabel(field.label);
+      setSelectedRaceIndex(field.originalIndex);
     } else if (activeSection === "AGE") {
       setSelectedAgeIndex(field.originalIndex);
     } else if (activeSection === "SEX") {
@@ -206,7 +217,8 @@ const Layer0131 = () => {
                     ? `${getSelectedLabel()} y.o.`
                     : getSelectedLabel()?.toUpperCase()}
                 </p>
-                <div className="absolute bottom-0.5 right-4 w-[384px] h-[384px]">
+            
+                <div className="w-[300px] h-[300px] md:w-[384px] md:h-[384px] flex items-center justify-center overflow-hidden">
                   <CircleProgress
                     percent={parseInt(
                       getSelectedValue()?.replace("%", "") || "0"

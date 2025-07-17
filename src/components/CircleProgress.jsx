@@ -15,7 +15,6 @@ const CircleProgress = ({ percent = 24, size = 384, stroke = 8 }) => {
           transformOrigin: "center",
         }}
       >
-        {/* //   <div className="flex items-center justify-center bg-[#f5f6f8] rounded-full p-4"> */}
         <svg width={size} height={size}>
           {/* BACKGROUND CIRCLE */}
           <circle
