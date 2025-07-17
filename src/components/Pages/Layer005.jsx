@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Layer011 from "./Layer011";
 
-
 function Layer005() {
   const [isLoading, setIsLoading] = useState(false);
   const [preview, setPreview] = useState(null);
@@ -196,33 +195,6 @@ function Layer005() {
                     />
                   </div>
                 </div>
-
-                {isOpen && (
-                  <>
-                    <div className="absolute md:top-[43%] md:left-[360px] w-[352px] z-50">
-                      <div className="bg-[#1A1B1C] pt-4 pb-2">
-                        <h2 className="text-[#FCFCFC] text-base font-semibold mb-12 leading-[24px] pl-4">
-                          ALLOW A.I. TO ACCESS YOUR CAMERA
-                        </h2>
-                        <div className="flex mt-4 border-t border-[#FCFCFC] pt-2 pl-40">
-                          <button
-                            onClick={() => window.location.reload()}
-                            className="px-7  md:translate-x-45 text-[#fcfcfca1] font-normal text-sm leading-4 tracking-tight cursor-pointer hover:text-gray-500 before:content-[''] before:absolute before:inset-[-8px] before:z-[-1]"
-                          >
-                            DENY
-                          </button>
-                          <button
-                            onClick={handleRedirect}
-                            className="px-5 md:translate-x-45 text-[#FCFCFC] font-semibold text-sm leading-4 tracking-tight cursor-pointer hover:text-gray-300 before:content-[''] before:absolute before:inset-[-8px] before:z-[-1]"
-                          >
-                            ALLOW
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    {/* <SelfieCapture /> */}
-                  </>
-                )}
               </div>
               <div className="relative md:absolute md:left-[45%] lg:left-[50%] xl:left-[55%] flex flex-col items-center mt-12 md:mt-0 justify-center md:-translate-y-[0%] -translate-y-[10%] translation-opacity duration-300 opacity-100">
                 <div className="w-[270px] h-[270px] md:w-[482px] md:h-[482px]"></div>
@@ -314,6 +286,31 @@ function Layer005() {
           </div>
         )}
 
+        {isOpen && (
+          <>
+            <div className="absolute md:top-[43%] md:left-[360px] w-[352px] z-50">
+              <div className="bg-[#1A1B1C] pt-4 pb-2">
+                <h2 className="text-[#FCFCFC] text-base font-semibold mb-12 leading-[24px] pl-4">
+                  ALLOW A.I. TO ACCESS YOUR CAMERA
+                </h2>
+                <div className="flex mt-4 border-t border-[#FCFCFC] pt-2 pl-40">
+                  <button
+                    onClick={() => window.location.reload()}
+                    className="px-7  md:translate-x-45 text-[#fcfcfca1] font-normal text-sm leading-4 tracking-tight cursor-pointer hover:text-gray-500 before:content-[''] before:absolute before:inset-[-8px] before:z-[-1]"
+                  >
+                    DENY
+                  </button>
+                  <button
+                    onClick={handleRedirect}
+                    className="px-5 md:translate-x-45 text-[#FCFCFC] font-semibold text-sm leading-4 tracking-tight cursor-pointer hover:text-gray-300 before:content-[''] before:absolute before:inset-[-8px] before:z-[-1]"
+                  >
+                    ALLOW
+                  </button>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
         <div className="absolute mt-20 top-[75px] right-7 md:top-[-50px] md:right-8 transition-opacity duration-300">
           <h1 className="text-xs md:text-sm font-normal mb-1">Preview</h1>
           <div className="w-24 h-24 md:w-32 md:h-32 border border-gray-300 overflow-hidden"></div>
